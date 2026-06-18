@@ -1,7 +1,31 @@
 const prompt = require('prompt-sync')();
+
+let option;
+//Menu
+function menu() {
+    option = prompt(`
+        choose a function to run:
+        [1] getDayAndTime
+        [2] getDateTwoFormats
+        [3]
+        [4]
+        [5] exit program`);
+
+    const options = [getDayAndTime, getDateTwoFormats, bool];
+    console.log(options[option]);
+
+
+}
+do {
+    menu();
+
+} while (option !== 5);
+
+while (true) {
+    menu();
+}
 const name = prompt('What is your name? ');
 console.log(`Hello ${name}`);
-
 
 //1. display current day and time
 //Write a JavaScript program to display the current day and time in the following format. 
@@ -10,9 +34,9 @@ console.log(`Hello ${name}`);
 //
 //Printar na tela dia e hora
 
-console.log(dayAndTime());
+console.log(getDayAndTime());
 
-function dayAndTime() {
+function getDayAndTime() {
     const date = new Date();
 
     let day = date.getDay();
@@ -75,9 +99,9 @@ function dayAndTime() {
 // mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy
 //
 console.log();
-console.log(getDate());
+console.log(getDateTwoFormats());
 
-function getDate() {
+function getDateTwoFormats() {
     const date = new Date();
     let MDY = date.toLocaleDateString('en-US');
     return MDY + ", " + MDY.replaceAll("/", "-");

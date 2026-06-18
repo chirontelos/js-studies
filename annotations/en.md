@@ -8,6 +8,7 @@
 
 
 #### express and a bit of js learning along the way
+- project structure: https://dev.to/mr_ali3n/folder-structure-for-nodejs-expressjs-project-435l
 - when following the [Tarefas api](https://medium.com/@habbema/node-js-apis-0e3544877f43), the api functions were created using const and arrow function like: const createTask (req, res) => {}
 1. the use of const is to avoid that other function be created with the same name and overwrite it, thus providing immutability when using const.
 2. another advantage is that the function can only be used after the declaration point. When using "function" javascript take then to the beginning of file and you can call then before their declaration
