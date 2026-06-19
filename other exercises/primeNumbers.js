@@ -1,31 +1,35 @@
-let x = 1;
+//method: divide each number by all previous prime numbers,
+// when a number is prime all numbers we use to divide it will result in a float number, except 1 and the number itself.
+// ex: 17 / 2 = 8.5
+//     17 / 3 = 5.6666...
+//     and so on
 
-let primeArray = [2, 3, 5, 7];
 
-for (let i = 0; i < 1000; i++) {
-    let testArray = [];
+let primeArray = [2];
+let x = 2;
 
-    for (let y = 0; y < primeArray.length; y++) {
-        // stores true if number divided by primeArray numbers and the result divided by 1 has remainder different from zero
-        // if all the values stored are true, then the number is prime
-        // edit: in truth, this method is flawed due to some numbers being disible by some prime numbers, like number 989 being divisible by 23 and 43 and not by 2,3,5 or 7
-        testArray.push(x / primeArray[y] % 1 !== 0);
-    }
-    let z = 0;
+for (let i = 2; i < 1000; i++) {
+    let count = 0;
+    let result = [];
 
-    for (let j = 0; j < testArray.length; j++) {
-        if (testArray[j] == true) {
-            z += 1;
+    for (let j = 0; j < primeArray.length; j++) {
+        // 13 / 2 results in 6.5 and 6.5 % 1 results in 0.5, 0.5 is different from 0, so true is stored in result array
+        result.push(i / primeArray[j] % 1 !== 0);
+
+        // for each true we add 1 to count
+        if (result[j] == true) {
+            count += 1;
         }
     }
 
-    if (z == 4) {
-        console.log(x);
-
+    // if the count and result.length are the same value then there is no divisor except 1 and the number itself
+    if (count == result.length) {
+        primeArray.push(i);
     }
-    // console.log(x + " " + testArray);
-    testArray = [];
-    //if all results of division are floats then number is prime
-
-    x += 1;
 }
+
+for (let i = 0; i < primeArray.length; i++) {
+    console.log("%s", primeArray[i],);
+}
+
+// my previous thesis in the previous version commited  was that I could get all primes by just dividing each number by prime numbers < 10, but this is false due to some numbers being divisible by 1, itself, and some other prime numbers, like 989 being divisible by prime numbers 23 and 43.
